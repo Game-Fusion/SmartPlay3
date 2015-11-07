@@ -1,0 +1,15 @@
+local w,h = term.getSize()
+
+function centerSlow(y,string)
+  local x = (w/2) - (#string/2)
+  term.setCursorPos(x, y)
+  textutils.slowPrint(string,27)
+end
+
+term.setBackgroundColour(colours.grey)
+term.setTextColour(colours.white)
+term.clear()
+centerSlow(3,"Welcome to SmartPlay 3.")
+centerSlow(4,"It's like music to your ears.")
+sleep(2.911)
+shell.run("SP3/Desktop")
