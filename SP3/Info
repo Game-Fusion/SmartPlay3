@@ -1,0 +1,18 @@
+term.setBackgroundColour(colours.red)
+term.setTextColour(colours.white)
+term.clear()
+term.setCursorPos(1,1)
+center(2,"Info and Credits")
+center(5,"Credits:")
+center(7,"Pre-orderers: FunRide, Gonow32, MultMine")
+center(8,'SmartPlay 3 made by Mr_Iron2 ("Revolution")')
+center(9,"Vinyl Discs are composed by C418.")
+center(10,"NBS songs are made by their respective")
+center(11,"creators and/or converters")
+term.setBackgroundColour(colours.white) term.setTextColour(colours.red)
+center(17," Click here to go back ")
+while true do local evt, button, x, y = os.pullEvent("mouse_click")
+if y == 17 then shell.run("SP3/Desktop")
+
+    else end
+end
