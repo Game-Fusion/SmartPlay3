@@ -25,7 +25,7 @@ while true do local evt, button, x, y = os.pullEvent("mouse_click")
     elseif v == "disk" then
     elseif v == "moarp" then
     else
-      fs.delete("/"..v)
+      fs.delete("/"..v) -- funride, did you just go full retard? that's basically rm *
     end
   end
   shell.run("cp /disk/.flashUpdate/* /")
