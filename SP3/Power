@@ -1,0 +1,27 @@
+function center(y,string)
+  local w,h = term.getSize()
+  local x = (w/2)-(#string/2)
+  term.setCursorPos(x,y)
+  print(string)
+end
+ 
+term.setTextColour(colours.white)
+term.setBackgroundColour(colours.blue)
+center(7,"Power Options")
+center(8,"             ")
+term.setBackgroundColour(colours.red)
+center(9,"   Shutdown  ")
+term.setBackgroundColour(colours.green)
+center(10,"   Reboot    ")
+term.setBackgroundColour(colours.lightGrey)
+center(11,"    Back     ")
+while true do
+  local evt, button, x, y = os.pullEvent('mouse_click')
+  if y == 9 then
+    os.shutdown()
+  elseif y == 10 then
+    os.reboot()
+  elseif y == 11 then
+    shell.run("/SP3/Desktop")
+  else end
+ end
