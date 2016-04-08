@@ -18,10 +18,24 @@ center(9,"return to Settings.")
 term.setBackgroundColour(colours.grey)
 center(14," Click here to quit ")
 end render()
+
+function deskrender()
+term.setBackgroundColor(colors.blue)
+term.setTextColor(colors.white)
+term.clear()
+center(2,"Desktop Settings")
+term.setBackgroundColor(colors.red)
+center(4," Taskbar Colour ")
+center(6," Version Text Colour")
+term.setBackgroundColor(colors.gray)
+center(14," Click here to go back. ")
+end
  
 while true do
 local evt, button, x, y = os.pullEvent("mouse_click")
-  if y == 4 then shell.run("edit SP3/Desktop") render()  
+  if y == 4 then --shell.run("edit SP3/Desktop") no. this is too insecure and opens up security holes.
+  
+  render()  
    elseif y == 6 then term.clear() term.setCursorPos(1,1) shell.run("shell") render()
     elseif y == 14 then shell.run("SP3/Desktop")
     else end
