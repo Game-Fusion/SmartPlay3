@@ -34,7 +34,32 @@ end
 while true do
 local evt, button, x, y = os.pullEvent("mouse_click")
   if y == 4 then --shell.run("edit SP3/Desktop") no. this is too insecure and opens up security holes.
-  
+  deskrender
+  a = 1
+  while a == 1 do
+    ev = {os.pullEvent("mouse_click")} -- you can see the difference in me and ironei's coding style here.
+    if ev[4] == 4 then
+      term.clear()
+      term.setCursorPos(1,1)
+      write("New colour (except 'colors.'): ")
+      color = read()
+      f = fs.open("/.taskcol","w")
+      a = "f.writeLine(colors."..color..")"
+      loadstring(a)
+      f.close()
+    elseif ev[4] == 6 then
+       term.clear()
+      term.setCursorPos(1,1)
+      write("New colour (except 'colors.'): ")
+      color = read()
+      f = fs.open("/.vercol","w")
+      a = "f.writeLine(colors."..color..")"
+      loadstring(a)
+      f.close()
+    elseif ev[4] == 14 then
+      a = 0
+    end
+  end
   render()  
    elseif y == 6 then term.clear() term.setCursorPos(1,1) shell.run("shell") render()
     elseif y == 14 then shell.run("SP3/Desktop")
