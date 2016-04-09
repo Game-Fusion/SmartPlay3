@@ -41,21 +41,22 @@ local evt, button, x, y = os.pullEvent("mouse_click")
     if ev[4] == 4 then
       term.clear()
       term.setCursorPos(1,1)
-      write("New colour (except 'colors.'): ")
+      write("New colour (except 'colors.',IN UK ENGLISH!): ")
       color = read()
       f = fs.open("/.taskcol","w")
       --a = "" BugFix #1: Oh no, I overwrote the while loop lock.
-      main = loadstring(a) --BugFix #2: "how do i use a function?" -funey 2k16
+      main = loadstring("f.writeLine(colours."..color..")") --BugFix #2: "how do i use a function?" -funey 2k16
       main()
       f.close()
     elseif ev[4] == 6 then
        term.clear()
       term.setCursorPos(1,1)
-      write("New colour (except 'colors.'): ")
+      write("New colour (except 'colors.', IN UK ENGLISH!): ")
       color = read()
       f = fs.open("/.vercol","w")
-      a = "f.writeLine(colors."..color..")"
-      loadstring(a)
+      --a = "f.writeLine(colors."..color..")"
+      main2 = loadstring("f.writeLine(colours."..color..")")
+      main2()
       f.close()
     elseif ev[4] == 14 then
       a = 0
