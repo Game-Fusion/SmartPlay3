@@ -14,7 +14,7 @@
   f.close()
  end
  
- f = fs.open("/.taskcol,"r")
+ f = fs.open("/.taskcol","r")
  taskcol = tonumber(f.readLine())
  f.close()
  f = fs.open("/.vercol","r")
