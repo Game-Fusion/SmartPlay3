@@ -2,6 +2,25 @@
 -- Original Idea by Gonow32
 -- Coded by CathrodeRayTube and Mr_Iron2
  
+ -- Initialise Color Changing
+ if not fs.exists("/.taskcol") then
+  f = fs.open("/.taskcol","w")
+  f.writeLine(colours.grey)
+  f.close()
+ end
+ if not fs.exists("/.vercol") then
+  f = fs.open("/.vercol","w")
+  f.writeLine(colours.black)
+  f.close()
+ end
+ 
+ f = fs.open("/.taskcol,"r")
+ taskcol = tonumber(f.readLine())
+ f.close()
+ f = fs.open("/.vercol","r")
+ vercol = tonumber(f.readLine())
+ f.close()
+ 
 -- Functions
  
 local w, h = term.getSize()
@@ -33,7 +52,7 @@ function drawDesktop()
   term.setBackgroundColour(colours.white)
   term.clear()
   term.setCursorPos(1,19)
-  term.setBackgroundColour(colours.grey)
+  term.setBackgroundColour(taskcol)
   term.clearLine()
   term.setCursorPos(1,1)
   term.clearLine()
@@ -41,12 +60,12 @@ function drawDesktop()
   center(1,"SmartPlay 3")
   term.setCursorPos(1,19)
   term.setBackgroundColour(colours.white)
-  term.setTextColour(colours.black)
+  term.setTextColour(vercol)
   line1 = "SmartPlay 3 v1"
   line2 = "Insider Preview"
-  term.setCursorPos(w-#line1,17)
+  term.setCursorPos(w-#line1+1,17)
   write(line1)
-  term.setCursorPos(w-#line2,18)
+  term.setCursorPos(w-#line2+1,18)
   write(line2)
   term.setCursorPos(1,19)
   term.setBackgroundColor(colors.green)
