@@ -34,7 +34,7 @@ end
 while true do
 local evt, button, x, y = os.pullEvent("mouse_click")
   if y == 4 then --shell.run("edit SP3/Desktop") no. this is too insecure and opens up security holes.
-  deskrender
+  deskrender()
   a = 1
   while a == 1 do
     ev = {os.pullEvent("mouse_click")} -- you can see the difference in me and ironei's coding style here.
@@ -44,8 +44,9 @@ local evt, button, x, y = os.pullEvent("mouse_click")
       write("New colour (except 'colors.'): ")
       color = read()
       f = fs.open("/.taskcol","w")
-      a = "f.writeLine(colors."..color..")"
-      loadstring(a)
+      --a = "" BugFix #1: Oh no, I overwrote the while loop lock.
+      main = loadstring(a) --BugFix #2: "how do i use a function?" -funey 2k16
+      main()
       f.close()
     elseif ev[4] == 6 then
        term.clear()
