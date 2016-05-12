@@ -41,22 +41,27 @@ local evt, button, x, y = os.pullEvent("mouse_click")
     if ev[4] == 4 then
       term.clear()
       term.setCursorPos(1,1)
-      write("New colour (except 'colors.',IN UK ENGLISH!): ")
+      write("New colour: ")
       color = read()
       --f = fs.open("/.taskcol","w")
       --a = "" BugFix #1: Oh no, I overwrote the while loop lock.
-      main = loadstring("f = fs.open("/.taskcol","w") f.writeLine(colours."..color..") f.close()") --BugFix #2: "how do i use a function?" -funey 2k16
-      main()
+      local f = fs.open(".taskcol", "w")
+      f.write(colours[color] or colors[color]) -- do not care
+      f.close()
+      --main = loadstring("f = fs.open("/.taskcol","w") f.writeLine(colours."..color..") f.close()") --BugFix #2: "how do i use a function?" -funey 2k16
+      --main()
       --f.close()
     elseif ev[4] == 6 then
        term.clear()
       term.setCursorPos(1,1)
-      write("New colour (except 'colors.', IN UK ENGLISH!): ")
+      write("New colour: ")
       color = read()
       --f = fs.open("/.vercol","w")
       --a = "f.writeLine(colors."..color..")"
-      main2 = loadstring("f = fs.open("/.vercol","w") f.writeLine(colours."..color..") f.close()")
-      main2()
+--      main2 = loadstring("f = fs.open("/.vercol","w") f.writeLine(colours."..color..") f.close()")
+--      main2()
+      local f = fs.open(".vercol", "w")
+      f.write(colours[color] or colors[color]) -- do not care
       f.close()
     elseif ev[4] == 14 then
       a = 0
