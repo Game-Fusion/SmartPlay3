@@ -1,43 +1,37 @@
-function center(y,string)
-  local w,h = term.getSize()
-  local x = (w/2)-(#string/2)
-  term.setCursorPos(x,y)
-  print(string)
+local function render()
+  term.setBackgroundColour(colours.blue)
+  term.setTextColour(colours.white)
+  term.clear()
+  center(2,"System Settings")
+  term.setBackgroundColour(colours.red)
+  center(4," Customise Desktop ")
+  center(6," Modify System Files ")
+  center(8,"When in System Files, type 'exit' to")
+  center(9,"return to Settings.")
+  term.setBackgroundColour(colours.grey)
+  center(14," Click here to quit ")
 end
- 
-function render()
-term.setBackgroundColour(colours.blue)
-term.setTextColour(colours.white)
-term.clear()
-center(2,"System Settings")
-term.setBackgroundColour(colours.red)
-center(4," Customise Desktop ")
-center(6," Modify System Files ")
-center(8,"When in System Files, type 'exit' to")
-center(9,"return to Settings.")
-term.setBackgroundColour(colours.grey)
-center(14," Click here to quit ")
-end render()
+render()
 
-function deskrender()
-term.setBackgroundColor(colors.blue)
-term.setTextColor(colors.white)
-term.clear()
-center(2,"Desktop Settings")
-term.setBackgroundColor(colors.red)
-center(4," Taskbar Colour ")
-center(6," Version Text Colour")
-term.setBackgroundColor(colors.gray)
-center(14," Click here to go back. ")
+local function deskrender()
+  term.setBackgroundColor(colors.blue)
+  term.setTextColor(colors.white)
+  term.clear()
+  center(2,"Desktop Settings")
+  term.setBackgroundColor(colors.red)
+  center(4," Taskbar Colour ")
+  center(6," Version Text Colour")
+  term.setBackgroundColor(colors.gray)
+  center(14," Click here to go back. ")
 end
  
 while true do
 local evt, button, x, y = os.pullEvent("mouse_click")
-  if y == 4 then --shell.run("edit SP3/Desktop") no. this is too insecure and opens up security holes.
+  if y == 4 then
   deskrender()
   a = 1
   while a == 1 do
-    ev = {os.pullEvent("mouse_click")} -- you can see the difference in me and ironei's coding style here.
+    ev = {os.pullEvent("mouse_click")}
     if ev[4] == 4 then
       term.clear()
       term.setCursorPos(1,1)
@@ -48,18 +42,11 @@ local evt, button, x, y = os.pullEvent("mouse_click")
       local f = fs.open(".taskcol", "w")
       f.write(colours[color] or colors[color]) -- do not care
       f.close()
-      --main = loadstring("f = fs.open("/.taskcol","w") f.writeLine(colours."..color..") f.close()") --BugFix #2: "how do i use a function?" -funey 2k16
-      --main()
-      --f.close()
     elseif ev[4] == 6 then
-       term.clear()
+      term.clear()
       term.setCursorPos(1,1)
       write("New colour: ")
       color = read()
-      --f = fs.open("/.vercol","w")
-      --a = "f.writeLine(colors."..color..")"
---      main2 = loadstring("f = fs.open("/.vercol","w") f.writeLine(colours."..color..") f.close()")
---      main2()
       local f = fs.open(".vercol", "w")
       f.write(colours[color] or colors[color]) -- do not care
       f.close()
