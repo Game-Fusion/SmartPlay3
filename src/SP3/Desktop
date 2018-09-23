@@ -25,13 +25,7 @@
  
 local w, h = term.getSize()
 
-function center(y,string)
-  local x = (w/2)-(#string/2)
-  term.setCursorPos(x,y)
-  print(string)
-end
-
-function drawMenu()
+local function drawMenu()
   term.setBackgroundColour(colours.blue)
   term.setTextColour(colours.black)
   term.setCursorPos(1,h-1)
@@ -48,7 +42,7 @@ function drawMenu()
   term.write("  Vinyl  ")
 end
  
-function drawDesktop()
+local function drawDesktop()
   term.setBackgroundColour(colours.white)
   term.clear()
   term.setCursorPos(1,19)
@@ -62,7 +56,7 @@ function drawDesktop()
   term.setBackgroundColour(colours.white)
   term.setTextColour(vercol)
   line1 = "SmartPlay 3 v1"
-  line2 = "Insider Preview"
+  line2 = "v1.0"
   term.setCursorPos(w-#line1+1,17)
   write(line1)
   term.setCursorPos(w-#line2+1,18)
