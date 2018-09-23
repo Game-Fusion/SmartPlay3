@@ -15,7 +15,7 @@ center(8, "Please insert disc.")
 center(17," Click here to Exit ")
  
 while true do local evt, button, x, y = os.pullEvent("mouse_click")
-  if y == 17 then shell.run("SP3/Desktop")
+  if y == 17 then shell.run("/SP3/Desktop")
 else
  
 while true do
