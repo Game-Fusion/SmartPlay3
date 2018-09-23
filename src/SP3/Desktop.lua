@@ -89,6 +89,7 @@ while true do
   elseif x >= 1 and x <= 8 and y == h - 4 and menu == 1 then
     shell.run("/SP3/note")
     menu = 0
+    break
   elseif x >= 1 and x <= 8 and y == h - 5 and menu == 1 then
     shell.run("/SP3/Info")
   elseif x >= 1 and x <= 8 and y == h - 6 and menu == 1 then
